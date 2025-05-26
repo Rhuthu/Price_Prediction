@@ -52,7 +52,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 cd server
-python app.py
+python server.py
 ```
 ---
 Dataset Source: Kaggle - Bangalore Home Prices
