@@ -1,6 +1,7 @@
 import pickle
 import json
 import numpy as np
+import pandas as pd
 
 __locations = None
 __data_columns = None
@@ -20,6 +21,11 @@ def get_estimated_price(location,sqft,bhk,bath):
         x[loc_index] = 1
 
     return round(__model.predict([x])[0],2)
+
+
+
+
+ 
 
 
 def load_saved_artifacts():
@@ -50,3 +56,5 @@ if __name__ == '__main__':
     print(get_estimated_price('1st Phase JP Nagar', 1000, 2, 2))
     print(get_estimated_price('Kalhalli', 1000, 2, 2)) # other location
     print(get_estimated_price('Ejipura', 1000, 2, 2))  # other location
+
+  

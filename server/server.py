@@ -1,7 +1,20 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,send_from_directory
 import util
+import os
+
+
+# Absolute path to client folder
+CLIENT_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'client'))
 
 app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return send_from_directory(CLIENT_FOLDER, 'app.html')
+
+@app.route('/client/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(CLIENT_FOLDER, filename)
 
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
